@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bean & Bloom Café – a cozy neighbourhood café serving specialty coffee, fresh pastries and good vibes." />
+  <title>Bean &amp; Bloom Café</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Header / Navigation ===== -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="logo">☕ Bean <span>&amp;</span> Bloom</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Visit Us</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="status" id="openStatus">Checking hours…</p>
+          <h1>Fresh coffee,<br />warm pastries,<br /><em>good company.</em></h1>
+          <p class="lead">Bean &amp; Bloom is a small neighbourhood café where students, remote workers and friends come to slow down over a great cup.</p>
+          <div class="hero-buttons">
+            <a href="#menu" class="btn btn-primary">See the Menu</a>
+            <a href="#contact" class="btn btn-outline">Find Us</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="cup">
+            <div class="steam"><span></span><span></span><span></span></div>
+            <div class="cup-body"></div>
+            <div class="cup-handle"></div>
+            <div class="saucer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-sub">Brewing happiness since 2019</p>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon">🌱</div>
+            <h3>Ethically Sourced</h3>
+            <p>We buy our beans directly from small farms and roast them in small batches every week.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">🥐</div>
+            <h3>Baked Daily</h3>
+            <p>Croissants, muffins and cookies come out of our oven every morning before we open.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">📶</div>
+            <h3>Study Friendly</h3>
+            <p>Free Wi-Fi, plenty of plug sockets and a quiet corner for when you need to focus.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Menu ===== -->
+    <section class="section section-alt" id="menu">
+      <div class="container">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-sub">Tap a category to filter, and add items to your order list</p>
+
+        <div class="filters" role="tablist" aria-label="Menu categories">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="coffee">Coffee</button>
+          <button class="filter-btn" data-filter="tea">Tea &amp; More</button>
+          <button class="filter-btn" data-filter="bakery">Bakery</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <!-- Menu cards are created by script.js from the menuItems list -->
+        </div>
+
+        <aside class="order-bar" id="orderBar" aria-live="polite">
+          <span>🧾 Your order: <strong id="orderCount">0</strong> items · <strong id="orderTotal">$0.00</strong></span>
+          <button class="btn btn-small" id="clearOrder">Clear</button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Gallery Carousel ===== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2 class="section-title">Inside the Café</h2>
+        <p class="section-sub">A peek at our favourite corners</p>
+
+        <div class="carousel" id="carousel" aria-roledescription="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <figure class="slide">
+              <img src="assets/latte-art.svg" alt="A latte with a leaf drawn in the milk foam" />
+              <figcaption>Latte art by our baristas</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="assets/pastries.svg" alt="Fresh croissants and muffins on a counter" />
+              <figcaption>Pastries, fresh every morning</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="assets/interior.svg" alt="Cozy café interior with plants and hanging lamps" />
+              <figcaption>Our cozy reading corner</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="assets/beans.svg" alt="Roasted coffee beans" />
+              <figcaption>Roasted in-house every week</figcaption>
+            </figure>
+          </div>
+
+          <button class="carousel-btn prev" id="prevSlide" aria-label="Previous slide">‹</button>
+          <button class="carousel-btn next" id="nextSlide" aria-label="Next slide">›</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Reviews ===== -->
+    <section class="section section-alt" id="reviews">
+      <div class="container">
+        <h2 class="section-title">What People Say</h2>
+        <p class="section-sub">Kind words from our regulars</p>
+        <div class="reviews">
+          <blockquote class="review">
+            <p>“Best flat white in town and the staff remember my name. My go-to study spot!”</p>
+            <footer>— Priya, university student</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>“The almond croissant is ridiculous. I come back every Saturday just for it.”</p>
+            <footer>— Daniel, local resident</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>“Quiet, bright and the Wi-Fi actually works. Perfect for remote work days.”</p>
+            <footer>— Sam, freelance designer</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div class="contact-info">
+          <h2 class="section-title left">Visit Us</h2>
+          <p>📍 42 Maple Street, Green Town</p>
+          <p>📞 <a href="tel:+15550142">(555) 0142</a></p>
+          <p>✉️ <a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></p>
+          <h3>Opening Hours</h3>
+          <table class="hours">
+            <tbody>
+              <tr><td>Monday – Friday</td><td>7:00 – 19:00</td></tr>
+              <tr><td>Saturday</td><td>8:00 – 20:00</td></tr>
+              <tr><td>Sunday</td><td>9:00 – 17:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <h3>Send us a message</h3>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+          <small class="error" id="nameError"></small>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+          <small class="error" id="emailError"></small>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Table booking, feedback, anything!"></textarea>
+          <small class="error" id="messageError"></small>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-success" id="formSuccess" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Bean &amp; Bloom Café · Made with ☕ and HTML, CSS &amp; JavaScript</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
