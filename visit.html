@@ -158,42 +158,61 @@
 
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <p class="hand">Good coffee,<br />slow mornings &amp; kind people.</p>
+    <div class="container footer-top">
+      <div>
+        <p class="hand footer-tagline">Good coffee,<br />slow mornings &amp; kind people.</p>
+        <div class="footer-actions">
+          <span class="status" data-open-status>Checking hours…</span>
+          <a href="visit.html" class="btn btn-dark">Plan your visit <span class="arrow">→</span></a>
         </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about.html">Our story</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Visit</h4>
-          <ul>
-            <li>42 Maple Street</li>
-            <li>Green Town</li>
-            <li><a href="visit.html">Opening hours</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Say hi</h4>
-          <ul>
-            <li><a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></li>
-            <li><a href="tel:+15550142">(555) 0142</a></li>
-            <li><a href="visit.html#contact">Send a message</a></li>
-          </ul>
+        <div class="footer-grid">
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">Our story</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Visit</h4>
+            <ul>
+              <li>42 Maple Street</li>
+              <li>Green Town</li>
+              <li><a href="visit.html">Opening hours</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Say hi</h4>
+            <ul>
+              <li><a href="mailto:hello@beanandbloom.example">Email us</a></li>
+              <li><a href="tel:+15550142">(555) 0142</a></li>
+              <li><a href="visit.html#contact">Send a message</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <p class="footer-word" aria-hidden="true">bean<em>&amp;</em>bloom</p>
+
+      <div class="footer-collage" aria-hidden="true">
+        <figure class="window fc-1">
+          <div class="window-bar"><i></i><i></i><i></i><span>see you soon</span></div>
+          <div class="photo" data-label="images/cafe-1.jpg"><img src="images/cafe-1.jpg" alt="" loading="lazy" /></div>
+        </figure>
+        <figure class="window fc-2">
+          <div class="window-bar"><i></i><i></i><i></i></div>
+          <div class="photo" data-label="images/coffee-1.jpg"><img src="images/coffee-1.jpg" alt="" loading="lazy" /></div>
+        </figure>
+        <div class="note fc-note" data-note></div>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px">
+
+    <div class="container">
+      <svg class="footer-word" viewBox="0 0 1000 200" role="img" aria-label="Bean &amp; Bloom">
+        <text x="0" y="178" textLength="1000" lengthAdjust="spacingAndGlyphs">bean<tspan>&amp;</tspan>bloom</text>
+      </svg>
+      <div class="footer-bottom">
         <span>© <span data-year></span> Bean &amp; Bloom Café</span>
-        <span>Made with ☕ using HTML, CSS &amp; JavaScript</span>
+        <a href="#" data-top>Back to top ↑</a>
       </div>
     </div>
   </footer>

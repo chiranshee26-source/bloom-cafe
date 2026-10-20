@@ -177,24 +177,43 @@ document.querySelectorAll("[data-note]").forEach((slot, i) => {
   BB.makeNote(shuffled[i % shuffled.length], slot);
 });
 
-// Let people drag notes around with a mouse or pen (touch keeps scrolling)
+// Let people drag notes anywhere on the page with a mouse or pen
+// (on touch screens notes stay put so the page can still scroll)
 function makeDraggable(note) {
-  let startX, startY, baseX, baseY;
+  let grabX, grabY;
+
+  function moveTo(e) {
+    // Keep the note inside the page
+    const maxX = document.documentElement.clientWidth - note.offsetWidth;
+    const maxY = document.documentElement.scrollHeight - note.offsetHeight;
+    const x = Math.min(Math.max(e.pageX - grabX, 0), maxX);
+    const y = Math.min(Math.max(e.pageY - grabY, 0), maxY);
+    note.style.left = x + "px";
+    note.style.top = y + "px";
+  }
 
   note.addEventListener("pointerdown", (e) => {
     if (e.pointerType === "touch" || e.target.closest("button")) return;
-    const [x = 0, y = 0] = (note.style.translate || "0px 0px").split(" ").map(parseFloat);
-    baseX = x;
-    baseY = y;
-    startX = e.clientX;
-    startY = e.clientY;
+    e.preventDefault();
+    const rect = note.getBoundingClientRect();
+    grabX = e.clientX - rect.left;
+    grabY = e.clientY - rect.top;
+
+    // First grab: lift the note out of its section so it can go anywhere
+    if (!note.classList.contains("free")) {
+      note.style.width = rect.width + "px";
+      Object.assign(note.style, { position: "absolute", right: "auto", bottom: "auto", margin: "0" });
+      note.classList.add("free");
+      document.body.appendChild(note);
+    }
+
+    moveTo(e);
     note.setPointerCapture(e.pointerId);
     note.classList.add("dragging");
   });
 
   note.addEventListener("pointermove", (e) => {
-    if (!note.classList.contains("dragging")) return;
-    note.style.translate = `${baseX + e.clientX - startX}px ${baseY + e.clientY - startY}px`;
+    if (note.classList.contains("dragging")) moveTo(e);
   });
 
   const stop = () => note.classList.remove("dragging");
@@ -282,3 +301,11 @@ if (lightboxItems.length) {
 
 /* ---------- Footer year ---------- */
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+
+/* ---------- "Back to top" link ---------- */
+document.querySelectorAll("[data-top]").forEach((link) =>
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  })
+);

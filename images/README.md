@@ -11,7 +11,7 @@ Until a photo exists, the site shows a brown placeholder labelled with the file 
 | `cafe-3.jpg`   | Window seats or a sunny corner                          | Portrait  |
 | `coffee-1.jpg` | Latte / flat white with latte art                       | Portrait  |
 | `coffee-2.jpg` | Iced coffee / cold brew in a glass                      | Portrait  |
-| `coffee-3.jpg` | Pour-over or coffee beans                               | Square    |
+| `coffee-3.jpg` | Coffee beans                               | Square    |
 | `coffee-4.jpg` | Matcha latte                                            | Portrait  |
 | `pastry-1.jpg` | Croissants                                              | Square    |
 | `pastry-2.jpg` | Cinnamon rolls                                          | Landscape |
