@@ -18,6 +18,8 @@ const menuItems = [
   { id: "almond-croissant", name: "Almond Croissant", price: 3.4, category: "bakery", desc: "Twice-baked with frangipane and toasted almonds.", badges: ["Bestseller"] },
   { id: "cinnamon-roll", name: "Cinnamon Roll", price: 3.4, category: "bakery", desc: "Soft and gooey, with cream-cheese icing.", badges: [] },
   { id: "banana-bread", name: "Banana Bread", price: 3.0, category: "bakery", desc: "Toasted, with a little salted butter on the side.", badges: ["Vegan"] },
+  { id: "lemon-cake", name: "Lemon Drizzle Cake", price: 3.8, category: "bakery", desc: "Zesty, soft and soaked in lemon syrup.", badges: [] },
+  { id: "avocado-toast", name: "Avocado Toast", price: 7.5, category: "bakery", desc: "Smashed avocado, chilli flakes and lemon on toasted sourdough.", badges: ["Vegan"] },
 ];
 
 const grid = document.getElementById("menuGrid");

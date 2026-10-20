@@ -2226,6 +2226,24 @@ h3 {
   color: var(--espresso);
 }
 
+.avatar {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Photo avatar (falls back to the letter if the photo is missing) */
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar img.img-missing {
+  display: none;
+}
+
 .member h3 {
   font-size: 1.3rem;
 }
