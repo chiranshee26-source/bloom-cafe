@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Coffee, tea, cold brews and fresh bakes at Bean & Bloom Café." />
+  <title>Menu · Bean & Bloom Café</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- If a photo is missing, show its labelled placeholder instead of a broken image -->
+  <script>
+    addEventListener("error", (e) => { if (e.target.tagName === "IMG") e.target.classList.add("img-missing"); }, true);
+  </script>
+</head>
+<body>
+  <!-- Coffee-coloured curtain used for page transitions -->
+  <div class="curtain" aria-hidden="true"><div class="curtain-cup"></div></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="logo"><span class="logo-mark">☕</span>Bean <em>&amp;</em> Bloom</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" aria-current="page">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="visit.html">Visit</a></li>
+        </ul>
+        <a href="menu.html" class="btn btn-dark nav-cta">Order ahead <span class="arrow">→</span></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" style="--i:0">Home</a>
+    <a href="menu.html" style="--i:1" aria-current="page">Menu</a>
+    <a href="gallery.html" style="--i:2">Gallery</a>
+    <a href="about.html" style="--i:3">About</a>
+    <a href="visit.html" style="--i:4">Visit</a>
+    <p>see you for coffee soon ☕</p>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow fade-up" style="--d:.8s">Freshly made, all day</span>
+        <h1 class="fade-up" style="--d:.9s">The <span class="hand">menu</span></h1>
+        <p class="fade-up" style="--d:1s">Everything's made in-house, from the roast to the croissant dough. Tap the + to build your order and pick it up at the counter.</p>
+
+        <div class="note float float-hide-md mn-1" data-note></div>
+        <figure class="window ph-win-1 pop-in" style="--d:1.1s" aria-hidden="true">
+          <div class="window-bar"><i></i><i></i><i></i><span>/menu/today</span></div>
+          <div class="photo" data-label="images/coffee-3.jpg"><img src="images/coffee-3.jpg" alt="" /></div>
+        </figure>
+        <figure class="window ph-win-2 pop-in" style="--d:1.25s" aria-hidden="true">
+          <div class="window-bar"><i></i><i></i><i></i></div>
+          <div class="photo" data-label="images/pastry-2.jpg"><img src="images/pastry-2.jpg" alt="" /></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:20px">
+      <div class="note float float-hide-md mn-2" data-note></div>
+
+      <div class="container">
+        <div class="menu-bar">
+          <div class="tabs" role="tablist" aria-label="Menu categories" id="menuTabs">
+            <span class="tab-pill" aria-hidden="true"></span>
+            <button class="active" data-filter="all" role="tab">Everything</button>
+            <button data-filter="espresso" role="tab">Espresso bar</button>
+            <button data-filter="cold" role="tab">Slow &amp; cold</button>
+            <button data-filter="tea" role="tab">Tea &amp; more</button>
+            <button data-filter="bakery" role="tab">Bakery</button>
+          </div>
+        </div>
+
+        <!-- Menu items are created by js/menu.js -->
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- Order basket -->
+    <button class="basket-btn" id="basketBtn" aria-label="Open your order">
+      🧺 Your order <span class="basket-count" id="basketCount">0</span>
+    </button>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="drawer" aria-label="Your order">
+      <div class="drawer-head">
+        <h3>Your order</h3>
+        <button class="round-btn" id="drawerClose" aria-label="Close order" style="width:44px;height:44px">✕</button>
+      </div>
+      <ul class="drawer-list" id="drawerList"></ul>
+      <div class="drawer-foot">
+        <div class="drawer-total"><span>Total</span><span id="drawerTotal">$0.00</span></div>
+        <button class="btn btn-dark" id="placeOrder">Place order for pickup <span class="arrow">→</span></button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="hand">Good coffee,<br />slow mornings &amp; kind people.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">Our story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>42 Maple Street</li>
+            <li>Green Town</li>
+            <li><a href="visit.html">Opening hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Say hi</h4>
+          <ul>
+            <li><a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></li>
+            <li><a href="tel:+15550142">(555) 0142</a></li>
+            <li><a href="visit.html#contact">Send a message</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-word" aria-hidden="true">bean<em>&amp;</em>bloom</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px">
+        <span>© <span data-year></span> Bean &amp; Bloom Café</span>
+        <span>Made with ☕ using HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

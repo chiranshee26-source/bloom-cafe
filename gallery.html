@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photos of our coffee, pastries and the café itself." />
+  <title>Gallery · Bean & Bloom Café</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- If a photo is missing, show its labelled placeholder instead of a broken image -->
+  <script>
+    addEventListener("error", (e) => { if (e.target.tagName === "IMG") e.target.classList.add("img-missing"); }, true);
+  </script>
+</head>
+<body>
+  <!-- Coffee-coloured curtain used for page transitions -->
+  <div class="curtain" aria-hidden="true"><div class="curtain-cup"></div></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="logo"><span class="logo-mark">☕</span>Bean <em>&amp;</em> Bloom</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="visit.html">Visit</a></li>
+        </ul>
+        <a href="menu.html" class="btn btn-dark nav-cta">Order ahead <span class="arrow">→</span></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" style="--i:0">Home</a>
+    <a href="menu.html" style="--i:1">Menu</a>
+    <a href="gallery.html" style="--i:2" aria-current="page">Gallery</a>
+    <a href="about.html" style="--i:3">About</a>
+    <a href="visit.html" style="--i:4">Visit</a>
+    <p>see you for coffee soon ☕</p>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow fade-up" style="--d:.8s">A peek inside</span>
+        <h1 class="fade-up" style="--d:.9s">Little <span class="hand">moments</span></h1>
+        <p class="fade-up" style="--d:1s">Morning light, latte art and a lot of pastries. Click any photo to see it bigger, and use your arrow keys (or swipe) to flick through.</p>
+        <figure class="window ph-win-1 pop-in" style="--d:1.1s" aria-hidden="true">
+          <div class="window-bar"><i></i><i></i><i></i><span>/gallery</span></div>
+          <div class="photo" data-label="images/cafe-3.jpg"><img src="images/cafe-3.jpg" alt="" /></div>
+        </figure>
+        <figure class="window ph-win-2 pop-in" style="--d:1.25s" aria-hidden="true">
+          <div class="window-bar"><i></i><i></i><i></i></div>
+          <div class="photo" data-label="images/coffee-1.jpg"><img src="images/coffee-1.jpg" alt="" /></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:20px">
+      <div class="note float float-hide-md gn-1" data-note></div>
+      <div class="note float float-hide-sm gn-2" data-note></div>
+      <div class="container">
+        <div class="filters" id="galleryFilters">
+          <button class="chip active" data-filter="all">All photos</button>
+          <button class="chip" data-filter="coffee">Coffee</button>
+          <button class="chip" data-filter="cafe">The café</button>
+          <button class="chip" data-filter="bakery">Bakery</button>
+        </div>
+        <div class="masonry" id="masonry">
+          <figure class="window" data-cat="cafe" data-lightbox data-caption="Our cosy corner by the window" data-reveal style="--delay:0.00s">
+            <div class="window-bar"><i></i><i></i><i></i><span>beanandbloom.cafe/inside</span></div>
+            <div class="photo" data-label="images/cafe-1.jpg" style="--ratio:4 / 3"><img src="images/cafe-1.jpg" alt="Our cosy corner by the window" loading="lazy" /></div>
+            <figcaption>Our cosy corner by the window</figcaption>
+          </figure>
+          <figure class="window" data-cat="coffee" data-lightbox data-caption="Latte art, every single time" data-reveal style="--delay:0.08s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/latte</span></div>
+            <div class="photo" data-label="images/coffee-1.jpg" style="--ratio:4 / 5"><img src="images/coffee-1.jpg" alt="Latte art, every single time" loading="lazy" /></div>
+            <figcaption>Latte art, every single time</figcaption>
+          </figure>
+          <figure class="window" data-cat="bakery" data-lightbox data-caption="Croissants, fresh at 6am" data-reveal style="--delay:0.16s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/bakery</span></div>
+            <div class="photo" data-label="images/pastry-1.jpg" style="--ratio:1 / 1"><img src="images/pastry-1.jpg" alt="Croissants, fresh at 6am" loading="lazy" /></div>
+            <figcaption>Croissants, fresh at 6am</figcaption>
+          </figure>
+          <figure class="window" data-cat="cafe" data-lightbox data-caption="The counter, mid-morning rush" data-reveal style="--delay:0.00s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/counter</span></div>
+            <div class="photo" data-label="images/cafe-2.jpg" style="--ratio:3 / 4"><img src="images/cafe-2.jpg" alt="The counter, mid-morning rush" loading="lazy" /></div>
+            <figcaption>The counter, mid-morning rush</figcaption>
+          </figure>
+          <figure class="window" data-cat="coffee" data-lightbox data-caption="18-hour cold brew" data-reveal style="--delay:0.08s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/cold-brew</span></div>
+            <div class="photo" data-label="images/coffee-2.jpg" style="--ratio:4 / 3"><img src="images/coffee-2.jpg" alt="18-hour cold brew" loading="lazy" /></div>
+            <figcaption>18-hour cold brew</figcaption>
+          </figure>
+          <figure class="window" data-cat="coffee" data-lightbox data-caption="Pour-over, poured slowly" data-reveal style="--delay:0.16s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/pour-over</span></div>
+            <div class="photo" data-label="images/coffee-3.jpg" style="--ratio:1 / 1"><img src="images/coffee-3.jpg" alt="Pour-over, poured slowly" loading="lazy" /></div>
+            <figcaption>Pour-over, poured slowly</figcaption>
+          </figure>
+          <figure class="window" data-cat="cafe" data-lightbox data-caption="Sunny window seats" data-reveal style="--delay:0.00s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/window-seats</span></div>
+            <div class="photo" data-label="images/cafe-3.jpg" style="--ratio:4 / 5"><img src="images/cafe-3.jpg" alt="Sunny window seats" loading="lazy" /></div>
+            <figcaption>Sunny window seats</figcaption>
+          </figure>
+          <figure class="window" data-cat="bakery" data-lightbox data-caption="Cinnamon rolls (gone by 10)" data-reveal style="--delay:0.08s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/cinnamon</span></div>
+            <div class="photo" data-label="images/pastry-2.jpg" style="--ratio:4 / 3"><img src="images/pastry-2.jpg" alt="Cinnamon rolls (gone by 10)" loading="lazy" /></div>
+            <figcaption>Cinnamon rolls (gone by 10)</figcaption>
+          </figure>
+          <figure class="window" data-cat="coffee" data-lightbox data-caption="Matcha, whisked by hand" data-reveal style="--delay:0.16s">
+            <div class="window-bar"><i></i><i></i><i></i><span>/matcha</span></div>
+            <div class="photo" data-label="images/coffee-4.jpg" style="--ratio:3 / 4"><img src="images/coffee-4.jpg" alt="Matcha, whisked by hand" loading="lazy" /></div>
+            <figcaption>Matcha, whisked by hand</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="hand">Good coffee,<br />slow mornings &amp; kind people.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">Our story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>42 Maple Street</li>
+            <li>Green Town</li>
+            <li><a href="visit.html">Opening hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Say hi</h4>
+          <ul>
+            <li><a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></li>
+            <li><a href="tel:+15550142">(555) 0142</a></li>
+            <li><a href="visit.html#contact">Send a message</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-word" aria-hidden="true">bean<em>&amp;</em>bloom</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px">
+        <span>© <span data-year></span> Bean &amp; Bloom Café</span>
+        <span>Made with ☕ using HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

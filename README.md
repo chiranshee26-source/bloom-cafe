@@ -1,86 +1,98 @@
 # ☕ Bean & Bloom Café
 
-A beginner-friendly, fully responsive website for a fictional neighbourhood café, built with plain **HTML, CSS and JavaScript**: no frameworks, no build step, no backend.
+A modern, responsive multi-page website for a fictional neighbourhood café. It's built with plain **HTML, CSS and JavaScript**: no frameworks, no build tools and no backend.
 
-🔗 **Live site:** https://YOUR-USERNAME.github.io/bean-and-bloom-cafe/
-📁 **Repository:** https://github.com/YOUR-USERNAME/bean-and-bloom-cafe
+🔗 **Live site:** https://chiranshee26-source.github.io/bloom-cafe/
+📁 **Repository:** https://github.com/chiranshee26-source/bloom-cafe
 
 ---
 
 ## 💡 The Idea
 
-**Bean & Bloom Café** is a small, cozy café that serves specialty coffee and fresh pastries.
+**Bean & Bloom** is a cosy café on Maple Street that serves small-batch coffee and pastries baked every morning.
 
-- **Purpose:** Give the café an online home where people can browse the menu, see what the place looks like, check opening hours and get in touch.
-- **Target audience:** Local residents, university students looking for a study spot, and remote workers who want a quiet place with good coffee and Wi-Fi.
+- **Purpose:** to give the café a warm, modern online home. Visitors can browse the menu, see the space, read what regulars say, check whether it's open right now, and get in touch.
+- **Target audience:** local residents, university students looking for a study spot, and remote workers who want a calm place with great coffee.
+- **Design direction:** a toned-down but welcoming palette (cream, espresso and a terracotta accent), bold modern headings, hand-written touches, and "browser window" photo cards floating over a coffee background. Sticky notes holding customer reviews are scattered across every page.
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 📱 **Responsive navigation** | A full menu bar on desktop that turns into an animated hamburger menu on mobile. The current section is highlighted as you scroll. |
-| 🟢 **"Open now" badge** | Shows whether the café is open right now, based on the visitor's local time and the opening hours. |
-| 🍰 **Interactive menu** | Menu cards are generated from a JavaScript list. Category filter buttons (All / Coffee / Tea / Bakery) and **+ Add** buttons keep a running order count and total. |
-| 🖼️ **Image carousel** | Previous/next arrows, clickable dots, 5-second autoplay (pauses on hover) and swipe support on touch screens. |
-| 🌙 **Dark mode** | A toggle in the navbar switches themes. It follows the system preference by default and remembers your choice. |
-| ✉️ **Contact form validation** | Checks name, email and message on the client side and shows friendly error and success messages. Nothing is sent to a server. |
-| ⬆️ **Back-to-top button** | Appears after scrolling down. |
-| ♿ **Accessibility** | Semantic HTML, alt text, ARIA labels and good colour contrast. |
+| Feature | Where | Description |
+|---|---|---|
+| 🧭 **Responsive navigation** | All pages | A floating "pill" navbar. On mobile it becomes a full-screen menu that opens with a circular reveal animation. |
+| 🎬 **Page transitions** | All pages | A coffee-coloured curtain with a filling cup slides between pages. |
+| 🖼️ **Parallax hero** | Home | Floating photo windows, coffee beans and notes drift with the mouse at different depths. |
+| 📝 **Sticky-note reviews** | All pages | Random customer reviews on colourful notes. You can drag them around with a mouse. |
+| 📌 **Kindness wall** | Home | Visitors can leave their own note with a star rating. It's saved in `localStorage` and can be removed. |
+| 🎠 **Favourites carousel** | Home | Arrow buttons, drag/swipe, autoplay that pauses on hover, and a progress bar. |
+| 🔢 **Counting stats & fanning polaroids** | Home | Animations that play when you scroll to them. |
+| 🍰 **Interactive menu** | Menu | Filter tabs with a sliding pill. "+" buttons send a dot flying into the basket. The order drawer has quantity controls and a total, and is saved in `localStorage`. |
+| 🔍 **Gallery + lightbox** | Gallery | Category filters and a masonry layout. Click a photo to open the lightbox, which supports keyboard arrows and swipe. |
+| 📈 **Scroll timeline & flip cards** | About | The timeline line fills as you scroll, and team cards flip over. |
+| 🟢 **"Open now" badge** | Home, Visit | Calculated live from the opening hours. Today's row is highlighted. |
+| ✉️ **Contact form** | Visit | Topic chips, friendly validation messages and a success animation (frontend only). There's also a copy-address button and an FAQ accordion. |
+| ♿ **Accessibility** | All pages | Semantic HTML, alt text, ARIA labels, keyboard support, and support for the `prefers-reduced-motion` setting. |
 
 ## 🛠️ Technology Stack
 
-- **HTML5**: semantic page structure
-- **CSS3**: custom properties (variables) for theming, Flexbox, CSS Grid, media queries, keyframe animations
-- **JavaScript (ES6)**: DOM manipulation, event handling and `localStorage`
-- **Google Fonts**: *Fraunces* (headings) and *Inter* (body)
-- **SVG**: hand-made illustrations for the carousel and favicon, so there are no external image dependencies
+- **HTML5**: semantic structure across 5 pages
+- **CSS3**: custom properties, Flexbox, Grid, CSS columns (masonry), keyframe animations, `clip-path`, `backdrop-filter`, 3D transforms and media queries
+- **Vanilla JavaScript (ES6+)**: DOM manipulation, events, `IntersectionObserver`, the Web Animations API, `localStorage` and the Clipboard API
+- **Google Fonts**: *Bricolage Grotesque* (headings), *Inter* (body) and *Caveat* (hand-written notes)
 - **GitHub Pages**: hosting
 
 ## 📂 Project Structure
 
 ```
-bean-and-bloom-cafe/
-├── index.html      # Page structure and content
-├── style.css       # All styles, including the dark theme and responsive breakpoints
-├── script.js       # Navigation, carousel, menu, theme, form logic
-├── assets/         # SVG images and favicon
-└── README.md
+bloom-cafe/
+├── index.html        # Home
+├── menu.html         # Menu + order basket
+├── gallery.html      # Photo gallery + lightbox
+├── about.html        # Story, timeline, values, team
+├── visit.html        # Hours, directions, contact form, FAQ
+├── css/
+│   └── style.css     # All styles (organised in numbered sections)
+├── js/
+│   ├── main.js       # Shared: nav, transitions, notes, lightbox, open status
+│   ├── home.js       # Parallax, carousel, counters, notes wall
+│   ├── menu.js       # Menu data, filters, basket
+│   ├── gallery.js    # Gallery filters
+│   ├── about.js      # Timeline, flip cards
+│   └── visit.js      # Contact form, copy address
+├── images/           # Photos (see images/README.md)
+└── assets/
+    └── favicon.svg
 ```
 
 ## 🚀 Setup Instructions
 
 ### Run locally
-
-1. **Clone the repository**
+1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/bean-and-bloom-cafe.git
-   cd bean-and-bloom-cafe
+   git clone https://github.com/chiranshee26-source/bloom-cafe.git
+   cd bloom-cafe
    ```
-2. **Open the site.** Either:
-   - double-click `index.html` to open it in your browser, **or**
-   - use a local server (recommended), for example the VS Code **Live Server** extension, or:
-     ```bash
-     python3 -m http.server 8000
-     # then visit http://localhost:8000
-     ```
+2. Open `index.html` in your browser, or use a local server such as the VS Code **Live Server** extension, or:
+   ```bash
+   python -m http.server 8000
+   # then visit http://localhost:8000
+   ```
 
 No installation or build step is needed.
 
 ### Deploy with GitHub Pages
-
-1. Push the code to a GitHub repository.
+1. Push the code to GitHub.
 2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Source: Deploy from a branch**, then select branch **`main`** and folder **`/ (root)`**, and click **Save**.
-4. After a minute your site is live at `https://YOUR-USERNAME.github.io/bean-and-bloom-cafe/`.
+3. Under **Build and deployment**, set **Source: Deploy from a branch**, then choose **`main`** and **`/ (root)`**, and click **Save**.
+4. The site goes live at `https://<username>.github.io/<repo-name>/`.
 
 ## 📱 Responsiveness
 
-The layout was tested at these widths:
+Tested at desktop (1440px), tablet and mobile (390px) widths:
+- **Desktop:** the hero collage sits beside the headline, with multi-column grids and the full navbar.
+- **Tablet (< 900px):** the hero collage moves below the headline, and the layouts switch to a single column.
+- **Mobile (< 600px):** a full-screen menu, swipeable carousel and lightbox, and sticky notes placed inside the page flow.
 
-- **Desktop (> 900px):** multi-column grids and a horizontal navbar
-- **Tablet (720–900px):** two-column cards, with the contact section stacked
-- **Mobile (< 720px):** single column, hamburger menu, smaller hero and carousel controls
+## 📄 Credits
 
-## 📄 License
-
-Free to use for learning purposes. Bean & Bloom Café is a fictional business.
+Bean & Bloom Café is a fictional business created for a learning project. Photos are from free stock sites (Unsplash / Pexels).

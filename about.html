@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How a tiny coffee cart on Maple Street became Bean & Bloom Café." />
+  <title>Our Story · Bean & Bloom Café</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- If a photo is missing, show its labelled placeholder instead of a broken image -->
+  <script>
+    addEventListener("error", (e) => { if (e.target.tagName === "IMG") e.target.classList.add("img-missing"); }, true);
+  </script>
+</head>
+<body>
+  <!-- Coffee-coloured curtain used for page transitions -->
+  <div class="curtain" aria-hidden="true"><div class="curtain-cup"></div></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="logo"><span class="logo-mark">☕</span>Bean <em>&amp;</em> Bloom</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="visit.html">Visit</a></li>
+        </ul>
+        <a href="menu.html" class="btn btn-dark nav-cta">Order ahead <span class="arrow">→</span></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" style="--i:0">Home</a>
+    <a href="menu.html" style="--i:1">Menu</a>
+    <a href="gallery.html" style="--i:2">Gallery</a>
+    <a href="about.html" style="--i:3" aria-current="page">About</a>
+    <a href="visit.html" style="--i:4">Visit</a>
+    <p>see you for coffee soon ☕</p>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow fade-up" style="--d:.8s">Since 2019</span>
+        <h1 class="fade-up" style="--d:.9s">Our <span class="hand">story</span></h1>
+        <p class="fade-up" style="--d:1s">It started with one coffee cart, one very old espresso machine and a lot of optimism.</p>
+        <figure class="window ph-win-1 pop-in" style="--d:1.1s" aria-hidden="true">
+          <div class="window-bar"><i></i><i></i><i></i><span>/about</span></div>
+          <div class="photo" data-label="images/cafe-2.jpg"><img src="images/cafe-2.jpg" alt="" /></div>
+        </figure>
+        <figure class="window ph-win-2 pop-in" style="--d:1.25s" aria-hidden="true">
+          <div class="window-bar"><i></i><i></i><i></i></div>
+          <div class="photo" data-label="images/coffee-3.jpg"><img src="images/coffee-3.jpg" alt="" /></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:30px">
+      <div class="container story">
+        <div class="pull-quote" data-reveal>
+          “We wanted a place where the coffee is serious, but nobody else has to be.”
+          <span class="hand">— Maya &amp; Jonah, founders</span>
+        </div>
+        <div data-reveal style="--delay:.1s">
+          <p>Bean &amp; Bloom began in 2019 as a tiny coffee cart outside Green Town station. Maya roasted the beans in her garage; Jonah baked the croissants in a kitchen that was definitely too small for it.</p>
+          <p>The queue got longer, the regulars got friendlier, and in 2021 we moved into the old flower shop at 42 Maple Street (that's where the "bloom" comes from).</p>
+          <p>Today we roast every week, bake every morning, and still know most of our regulars by name. Pull up a chair.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:20px">
+      <div class="note float float-hide-md an-1" data-note></div>
+      <div class="container">
+        <div class="section-head" style="justify-content:center;text-align:center">
+          <div data-reveal>
+            <span class="eyebrow">How we got here</span>
+            <h2 class="section-title">The <span class="hand">timeline</span></h2>
+          </div>
+        </div>
+        <div class="timeline" id="timeline">
+          <span class="timeline-fill" id="timelineFill"></span>
+          <div class="t-item" data-reveal><span class="year">2019</span><h3>The little cart</h3><p>One espresso machine, two founders and a striped umbrella outside the station.</p></div>
+          <div class="t-item" data-reveal><span class="year">2020</span><h3>Garage roasting</h3><p>We started roasting our own beans in small batches, and never looked back.</p></div>
+          <div class="t-item" data-reveal><span class="year">2021</span><h3>A real home</h3><p>We moved into the old flower shop on Maple Street. We kept the name, the plants and the tiles.</p></div>
+          <div class="t-item" data-reveal><span class="year">2023</span><h3>The bakery opens</h3><p>A proper oven, a 5am alarm and the almond croissant that started a small obsession.</p></div>
+          <div class="t-item" data-reveal><span class="year">Today</span><h3>Still brewing</h3><p>12 staff, 3 house roasts and more than 1,200 kind reviews. Thank you for every single cup.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:20px">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow">What we care about</span>
+            <h2 class="section-title">Our <span class="hand">values</span></h2>
+          </div>
+        </div>
+        <div class="values">
+          <article class="value" data-reveal><div class="num">01</div><h3>Small-batch, always</h3><p>We buy directly from small farms and roast every week, so your coffee is never more than a few days old.</p></article>
+          <article class="value" data-reveal style="--delay:.1s"><div class="num">02</div><h3>Baked, not bought</h3><p>Every pastry is made in our own kitchen, starting at 5am. Yes, even the cinnamon rolls.</p></article>
+          <article class="value" data-reveal style="--delay:.2s"><div class="num">03</div><h3>Everyone's welcome</h3><p>Students, laptops, dogs and grandparents. Oat milk costs nothing extra, and you can stay as long as you like.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:20px">
+      <div class="note float float-hide-md an-2" data-note></div>
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow">Hover (or tap) to flip</span>
+            <h2 class="section-title">Meet the <span class="hand">crew</span></h2>
+          </div>
+        </div>
+        <div class="team">
+          <div class="member" tabindex="0" data-reveal>
+            <div class="member-inner">
+              <div class="member-face member-front"><span class="avatar" style="background:var(--note-peach)">M</span><h3>Maya</h3><small>Co-founder · Head roaster</small></div>
+              <div class="member-face member-back">“Can tell a Kenyan from a Colombian blindfolded.”</div>
+            </div>
+          </div>
+          <div class="member" tabindex="0" data-reveal style="--delay:.08s">
+            <div class="member-inner">
+              <div class="member-face member-front"><span class="avatar" style="background:var(--note-mint)">J</span><h3>Jonah</h3><small>Co-founder · Baker</small></div>
+              <div class="member-face member-back">“Has woken up at 5am every day since 2023. Send help.”</div>
+            </div>
+          </div>
+          <div class="member" tabindex="0" data-reveal style="--delay:.16s">
+            <div class="member-inner">
+              <div class="member-face member-front"><span class="avatar" style="background:var(--note-blue)">R</span><h3>Rosa</h3><small>Head barista</small></div>
+              <div class="member-face member-back">“Latte art champion of Green Town, 2024 ♡”</div>
+            </div>
+          </div>
+          <div class="member" tabindex="0" data-reveal style="--delay:.24s">
+            <div class="member-inner">
+              <div class="member-face member-front"><span class="avatar" style="background:var(--note-pink)">B</span><h3>Biscuit</h3><small>Chief morale officer</small></div>
+              <div class="member-face member-back">“A very good dog. Accepts belly rubs as payment.”</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="hand">Good coffee,<br />slow mornings &amp; kind people.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">Our story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>42 Maple Street</li>
+            <li>Green Town</li>
+            <li><a href="visit.html">Opening hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Say hi</h4>
+          <ul>
+            <li><a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></li>
+            <li><a href="tel:+15550142">(555) 0142</a></li>
+            <li><a href="visit.html#contact">Send a message</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-word" aria-hidden="true">bean<em>&amp;</em>bloom</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px">
+        <span>© <span data-year></span> Bean &amp; Bloom Café</span>
+        <span>Made with ☕ using HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

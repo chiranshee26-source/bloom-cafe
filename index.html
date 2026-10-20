@@ -3,213 +3,332 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bean & Bloom Café – a cozy neighbourhood café serving specialty coffee, fresh pastries and good vibes." />
-  <title>Bean &amp; Bloom Café</title>
+  <meta name="description" content="A cosy neighbourhood café serving small-batch coffee, fresh pastries and good vibes." />
+  <title>Bean & Bloom Café · Good coffee, slow mornings</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- If a photo is missing, show its labelled placeholder instead of a broken image -->
+  <script>
+    addEventListener("error", (e) => { if (e.target.tagName === "IMG") e.target.classList.add("img-missing"); }, true);
+  </script>
 </head>
 <body>
-  <!-- ===== Header / Navigation ===== -->
-  <header class="header" id="header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a href="#home" class="logo">☕ Bean <span>&amp;</span> Bloom</a>
+  <!-- Coffee-coloured curtain used for page transitions -->
+  <div class="curtain" aria-hidden="true"><div class="curtain-cup"></div></div>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Visit Us</a></li>
-        <li>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
-        </li>
-      </ul>
-    </nav>
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="logo"><span class="logo-mark">☕</span>Bean <em>&amp;</em> Bloom</a>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="visit.html">Visit</a></li>
+        </ul>
+        <a href="menu.html" class="btn btn-dark nav-cta">Order ahead <span class="arrow">→</span></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </nav>
+    </div>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" style="--i:0" aria-current="page">Home</a>
+    <a href="menu.html" style="--i:1">Menu</a>
+    <a href="gallery.html" style="--i:2">Gallery</a>
+    <a href="about.html" style="--i:3">About</a>
+    <a href="visit.html" style="--i:4">Visit</a>
+    <p>see you for coffee soon ☕</p>
+  </div>
 
   <main>
     <!-- ===== Hero ===== -->
-    <section class="hero" id="home">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="status" id="openStatus">Checking hours…</p>
-          <h1>Fresh coffee,<br />warm pastries,<br /><em>good company.</em></h1>
-          <p class="lead">Bean &amp; Bloom is a small neighbourhood café where students, remote workers and friends come to slow down over a great cup.</p>
-          <div class="hero-buttons">
-            <a href="#menu" class="btn btn-primary">See the Menu</a>
-            <a href="#contact" class="btn btn-outline">Find Us</a>
-          </div>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="cup">
-            <div class="steam"><span></span><span></span><span></span></div>
-            <div class="cup-body"></div>
-            <div class="cup-handle"></div>
-            <div class="saucer"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
 
-    <!-- ===== About ===== -->
-    <section class="section" id="about">
-      <div class="container">
-        <h2 class="section-title">Our Story</h2>
-        <p class="section-sub">Brewing happiness since 2019</p>
-        <div class="features">
-          <article class="feature">
-            <div class="feature-icon">🌱</div>
-            <h3>Ethically Sourced</h3>
-            <p>We buy our beans directly from small farms and roast them in small batches every week.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">🥐</div>
-            <h3>Baked Daily</h3>
-            <p>Croissants, muffins and cookies come out of our oven every morning before we open.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">📶</div>
-            <h3>Study Friendly</h3>
-            <p>Free Wi-Fi, plenty of plug sockets and a quiet corner for when you need to focus.</p>
-          </article>
+      <div class="container hero-content">
+        <span class="status fade-up" style="--d:0.9s" data-open-status>Checking hours…</span>
+        <h1 class="hero-title">
+          <span class="line"><span style="--i:0">Coffee</span></span>
+          <span class="line"><span style="--i:1">worth</span></span>
+          <span class="line hand"><span style="--i:2">waking up for.</span></span>
+        </h1>
+        <p class="hero-sub fade-up" style="--d:1.4s">
+          A little neighbourhood café on Maple Street. Small-batch roasts, pastries out of the oven at 6am,
+          and a seat that's waiting for you.
+        </p>
+        <div class="hero-actions fade-up" style="--d:1.55s">
+          <a href="menu.html" class="btn btn-dark">Explore the menu <span class="arrow">→</span></a>
+          <a href="visit.html" class="btn btn-ghost">Find us</a>
         </div>
       </div>
-    </section>
 
-    <!-- ===== Menu ===== -->
-    <section class="section section-alt" id="menu">
-      <div class="container">
-        <h2 class="section-title">Our Menu</h2>
-        <p class="section-sub">Tap a category to filter, and add items to your order list</p>
-
-        <div class="filters" role="tablist" aria-label="Menu categories">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="coffee">Coffee</button>
-          <button class="filter-btn" data-filter="tea">Tea &amp; More</button>
-          <button class="filter-btn" data-filter="bakery">Bakery</button>
-        </div>
-
-        <div class="menu-grid" id="menuGrid">
-          <!-- Menu cards are created by script.js from the menuItems list -->
-        </div>
-
-        <aside class="order-bar" id="orderBar" aria-live="polite">
-          <span>🧾 Your order: <strong id="orderCount">0</strong> items · <strong id="orderTotal">$0.00</strong></span>
-          <button class="btn btn-small" id="clearOrder">Clear</button>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ===== Gallery Carousel ===== -->
-    <section class="section" id="gallery">
-      <div class="container">
-        <h2 class="section-title">Inside the Café</h2>
-        <p class="section-sub">A peek at our favourite corners</p>
-
-        <div class="carousel" id="carousel" aria-roledescription="carousel">
-          <div class="carousel-track" id="carouselTrack">
-            <figure class="slide">
-              <img src="assets/latte-art.svg" alt="A latte with a leaf drawn in the milk foam" />
-              <figcaption>Latte art by our baristas</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="assets/pastries.svg" alt="Fresh croissants and muffins on a counter" />
-              <figcaption>Pastries, fresh every morning</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="assets/interior.svg" alt="Cozy café interior with plants and hanging lamps" />
-              <figcaption>Our cozy reading corner</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="assets/beans.svg" alt="Roasted coffee beans" />
-              <figcaption>Roasted in-house every week</figcaption>
+      <!-- Floating photo "tabs", beans and sticky notes (they follow the mouse) -->
+      <div class="hero-stage" id="heroStage">
+        <div class="layer hw-4" data-depth="18">
+          <div class="pop-in" style="--d:1.25s">
+            <figure class="window" data-lightbox data-caption="Latte art, every single time">
+              <div class="window-bar"><i></i><i></i><i></i></div>
+              <div class="photo" data-label="images/coffee-1.jpg"><img src="images/coffee-1.jpg" alt="Latte with heart-shaped latte art" /></div>
             </figure>
           </div>
+        </div>
+        <div class="layer hw-1" data-depth="30">
+          <div class="pop-in" style="--d:1.1s">
+            <figure class="window" data-lightbox data-caption="Our cosy corner by the window">
+              <div class="window-bar"><i></i><i></i><i></i><span>beanandbloom.cafe/inside</span></div>
+              <div class="photo" data-label="images/cafe-1.jpg"><img src="images/cafe-1.jpg" alt="Warm café interior with wooden tables and plants" /></div>
+            </figure>
+          </div>
+        </div>
+        <div class="layer hw-2" data-depth="45">
+          <div class="pop-in" style="--d:1.35s">
+            <figure class="window" data-lightbox data-caption="18-hour cold brew">
+              <div class="window-bar"><i></i><i></i><i></i><span>/menu/cold-brew</span></div>
+              <div class="photo" data-label="images/coffee-2.jpg"><img src="images/coffee-2.jpg" alt="Iced coffee in a glass" /></div>
+            </figure>
+          </div>
+        </div>
+        <div class="layer hw-3" data-depth="60">
+          <div class="pop-in" style="--d:1.5s">
+            <figure class="window" data-lightbox data-caption="Croissants, fresh at 6am">
+              <div class="window-bar"><i></i><i></i><i></i></div>
+              <div class="photo" data-label="images/pastry-1.jpg"><img src="images/pastry-1.jpg" alt="Golden butter croissants" /></div>
+            </figure>
+          </div>
+        </div>
 
-          <button class="carousel-btn prev" id="prevSlide" aria-label="Previous slide">‹</button>
-          <button class="carousel-btn next" id="nextSlide" aria-label="Next slide">›</button>
-          <div class="carousel-dots" id="carouselDots"></div>
+        <span class="layer" data-depth="80" style="top:24%;right:31%"><span class="pop-in" style="--d:1.7s;display:block"><span class="bean" style="--r:35deg"></span></span></span>
+        <span class="layer" data-depth="40" style="top:68%;right:20%"><span class="pop-in" style="--d:1.8s;display:block"><span class="bean" style="--r:-20deg;--s:.8"></span></span></span>
+        <span class="layer" data-depth="100" style="top:40%;right:3%"><span class="pop-in" style="--d:1.9s;display:block"><span class="bean" style="--r:70deg;--s:1.2"></span></span></span>
+        <span class="layer" data-depth="25" style="bottom:20%;right:58%"><span class="pop-in" style="--d:2s;display:block"><span class="bean" style="--r:10deg;--s:.7"></span></span></span>
+
+        <div class="layer hn-1" data-depth="70">
+          <div class="pop-in" style="--d:1.9s"><div class="note" data-note style="position:relative"></div></div>
+        </div>
+        <div class="layer hn-2" data-depth="55">
+          <div class="pop-in" style="--d:2.05s"><div class="note" data-note style="position:relative"></div></div>
         </div>
       </div>
+
+      <a href="#favourites" class="scroll-cue">Scroll</a>
     </section>
 
-    <!-- ===== Reviews ===== -->
-    <section class="section section-alt" id="reviews">
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Freshly roasted</span><span>Oat milk, no extra charge</span><span>Pastries at 6am</span><span>Free wifi</span><span>Dogs welcome</span>
+        <span>Freshly roasted</span><span>Oat milk, no extra charge</span><span>Pastries at 6am</span><span>Free wifi</span><span>Dogs welcome</span>
+      </div>
+    </div>
+
+    <!-- ===== Favourites carousel ===== -->
+    <section class="section" id="favourites">
       <div class="container">
-        <h2 class="section-title">What People Say</h2>
-        <p class="section-sub">Kind words from our regulars</p>
-        <div class="reviews">
-          <blockquote class="review">
-            <p>“Best flat white in town and the staff remember my name. My go-to study spot!”</p>
-            <footer>— Priya, university student</footer>
-          </blockquote>
-          <blockquote class="review">
-            <p>“The almond croissant is ridiculous. I come back every Saturday just for it.”</p>
-            <footer>— Daniel, local resident</footer>
-          </blockquote>
-          <blockquote class="review">
-            <p>“Quiet, bright and the Wi-Fi actually works. Perfect for remote work days.”</p>
-            <footer>— Sam, freelance designer</footer>
-          </blockquote>
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow">Today's favourites</span>
+            <h2 class="section-title">Pick your <span class="hand">little treat</span></h2>
+          </div>
+          <div class="carousel-controls" data-reveal style="--delay:.1s">
+            <button class="round-btn" id="favPrev" aria-label="Previous">←</button>
+            <button class="round-btn" id="favNext" aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <div class="fav-track" id="favTrack" data-reveal style="--delay:.15s">
+          <article class="fav-card">
+            <div class="photo" data-label="images/coffee-1.jpg"><span class="fav-tag">Bestseller</span><img src="images/coffee-1.jpg" alt="Flat white with latte art" /></div>
+            <div class="fav-meta"><h3>Flat White</h3><span class="price">$3.80</span></div>
+            <p>Silky micro-foam over a double ristretto. Our barista's pride.</p>
+          </article>
+          <article class="fav-card">
+            <div class="photo" data-label="images/coffee-2.jpg"><span class="fav-tag">Slow brewed</span><img src="images/coffee-2.jpg" alt="Iced cold brew" /></div>
+            <div class="fav-meta"><h3>Cold Brew</h3><span class="price">$4.00</span></div>
+            <p>Steeped for 18 hours. Smooth, chocolatey, dangerously drinkable.</p>
+          </article>
+          <article class="fav-card">
+            <div class="photo" data-label="images/coffee-3.jpg"><span class="fav-tag">Single origin</span><img src="images/coffee-3.jpg" alt="Pour-over coffee being brewed" /></div>
+            <div class="fav-meta"><h3>Pour-Over</h3><span class="price">$4.50</span></div>
+            <p>This week: Ethiopian Yirgacheffe with notes of jasmine and peach.</p>
+          </article>
+          <article class="fav-card">
+            <div class="photo" data-label="images/pastry-1.jpg"><span class="fav-tag">Baked at 6am</span><img src="images/pastry-1.jpg" alt="Butter croissant" /></div>
+            <div class="fav-meta"><h3>Almond Croissant</h3><span class="price">$3.40</span></div>
+            <p>Twice-baked, filled with frangipane and topped with toasted almonds.</p>
+          </article>
+          <article class="fav-card">
+            <div class="photo" data-label="images/coffee-4.jpg"><span class="fav-tag">New</span><img src="images/coffee-4.jpg" alt="Matcha latte" /></div>
+            <div class="fav-meta"><h3>Matcha Latte</h3><span class="price">$4.50</span></div>
+            <p>Ceremonial-grade matcha whisked by hand with oat milk.</p>
+          </article>
+          <article class="fav-card">
+            <div class="photo" data-label="images/pastry-2.jpg"><span class="fav-tag">Sells out by 10</span><img src="images/pastry-2.jpg" alt="Cinnamon roll" /></div>
+            <div class="fav-meta"><h3>Cinnamon Roll</h3><span class="price">$3.40</span></div>
+            <p>Soft, gooey and glazed with cream-cheese icing. Get here early.</p>
+          </article>
+        </div>
+        <div class="progress" aria-hidden="true"><span id="favProgress"></span></div>
+      </div>
+    </section>
+
+    <!-- ===== The vibe ===== -->
+    <section class="section" style="padding-top:40px">
+      <div class="note float float-hide-md vn-1" data-note></div>
+      <div class="container vibe">
+        <div class="polaroids" data-inview>
+          <figure class="polaroid" data-lightbox data-caption="Our counter, every morning">
+            <div class="photo" data-label="images/cafe-2.jpg"><img src="images/cafe-2.jpg" alt="Barista working at the coffee counter" /></div>
+            <figcaption>the counter ♡</figcaption>
+          </figure>
+          <figure class="polaroid" data-lightbox data-caption="The window seats">
+            <div class="photo" data-label="images/cafe-3.jpg"><img src="images/cafe-3.jpg" alt="Window seats with sunlight" /></div>
+            <figcaption>sunny seats</figcaption>
+          </figure>
+          <figure class="polaroid" data-lightbox data-caption="Pour-over in progress">
+            <div class="photo" data-label="images/coffee-3.jpg"><img src="images/coffee-3.jpg" alt="Pour-over coffee" /></div>
+            <figcaption>slow pour</figcaption>
+          </figure>
+        </div>
+
+        <div class="vibe-text">
+          <span class="eyebrow" data-reveal>The vibe</span>
+          <h2 class="section-title" data-reveal style="--delay:.08s">Your third <span class="hand">place.</span></h2>
+          <p data-reveal style="--delay:.16s">
+            Not home, not work: somewhere in between. Bring a book, a laptop or a friend. We'll handle the
+            coffee, the music and the pastries. Stay as long as you like, nobody's rushing you out.
+          </p>
+          <div class="stats" data-reveal style="--delay:.24s">
+            <div class="stat"><strong data-count="6" data-suffix="am">0</strong><span>pastries out of the oven</span></div>
+            <div class="stat"><strong data-count="18" data-suffix="h">0</strong><span>cold brew steeping time</span></div>
+            <div class="stat"><strong data-count="4.9" data-decimals="1" data-suffix="★">0</strong><span>from 1,200+ reviews</span></div>
+          </div>
+          <a href="about.html" class="btn btn-ghost" data-reveal style="--delay:.32s">Read our story <span class="arrow">→</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
-    <section class="section" id="contact">
-      <div class="container contact">
-        <div class="contact-info">
-          <h2 class="section-title left">Visit Us</h2>
-          <p>📍 42 Maple Street, Green Town</p>
-          <p>📞 <a href="tel:+15550142">(555) 0142</a></p>
-          <p>✉️ <a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></p>
-          <h3>Opening Hours</h3>
-          <table class="hours">
-            <tbody>
-              <tr><td>Monday – Friday</td><td>7:00 – 19:00</td></tr>
-              <tr><td>Saturday</td><td>8:00 – 20:00</td></tr>
-              <tr><td>Sunday</td><td>9:00 – 17:00</td></tr>
-            </tbody>
-          </table>
+    <!-- ===== Notes wall ===== -->
+    <section class="section wall-section">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="eyebrow">Notes from our regulars</span>
+            <h2 class="section-title">The <span class="hand">kindness</span> wall</h2>
+          </div>
+          <div data-reveal style="--delay:.1s">
+            <p class="section-intro" style="margin-bottom:16px">Every note here was left by someone who came in for a coffee. Drag them around, or pin up your own.</p>
+            <button class="btn btn-dark" id="openNoteForm">+ Leave a note</button>
+          </div>
         </div>
 
-        <form class="contact-form" id="contactForm" novalidate>
-          <h3>Send us a message</h3>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" />
-          <small class="error" id="nameError"></small>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" />
-          <small class="error" id="emailError"></small>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Table booking, feedback, anything!"></textarea>
-          <small class="error" id="messageError"></small>
-
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <p class="form-success" id="formSuccess" role="status"></p>
-        </form>
+        <div class="wall" id="wall">
+          <div data-note></div><div data-note></div><div data-note></div><div data-note></div>
+          <div data-note></div><div data-note></div><div data-note></div><div data-note></div>
+        </div>
       </div>
     </section>
+
+    <!-- ===== Visit CTA ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-card" data-reveal>
+          <span class="cta-cup" aria-hidden="true"></span>
+          <div>
+            <span class="status" data-open-status>Checking hours…</span>
+            <h2 style="margin-top:20px">Come say hi <span class="hand">the kettle's on.</span></h2>
+            <p>42 Maple Street, Green Town. Two minutes from the station, right next to the flower shop.</p>
+            <a href="visit.html" class="btn btn-light">Plan your visit <span class="arrow">→</span></a>
+          </div>
+          <ul class="hours-mini">
+            <li data-day="1,2,3,4,5"><span>Mon – Fri</span><span>7:00 – 19:00</span></li>
+            <li data-day="6"><span>Saturday</span><span>8:00 – 20:00</span></li>
+            <li data-day="0"><span>Sunday</span><span>9:00 – 17:00</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== "Leave a note" form (opens as a modal) ===== -->
+    <div class="modal" id="noteModal" role="dialog" aria-modal="true" aria-labelledby="noteTitle">
+      <form class="modal-card" id="noteForm" novalidate>
+        <button type="button" class="modal-close" aria-label="Close">✕</button>
+        <h3 id="noteTitle">Leave us a note ✎</h3>
+        <div class="field">
+          <label>Your rating</label>
+          <div class="star-input" id="starInput">
+            <button type="button" data-value="1" aria-label="1 star">★</button>
+            <button type="button" data-value="2" aria-label="2 stars">★</button>
+            <button type="button" data-value="3" aria-label="3 stars">★</button>
+            <button type="button" data-value="4" aria-label="4 stars">★</button>
+            <button type="button" data-value="5" aria-label="5 stars">★</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="noteName">Your name</label>
+          <input id="noteName" maxlength="20" placeholder="e.g. Alex" />
+          <small class="error"></small>
+        </div>
+        <div class="field">
+          <label for="noteText">Your note</label>
+          <textarea id="noteText" maxlength="90" placeholder="What did you love?"></textarea>
+          <small class="error"></small>
+        </div>
+        <button type="submit" class="btn btn-dark" style="margin-top:12px">Pin it to the wall 📌</button>
+      </form>
+    </div>
   </main>
 
-  <footer class="footer">
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Bean &amp; Bloom Café · Made with ☕ and HTML, CSS &amp; JavaScript</p>
+      <div class="footer-grid">
+        <div>
+          <p class="hand">Good coffee,<br />slow mornings &amp; kind people.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">Our story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>42 Maple Street</li>
+            <li>Green Town</li>
+            <li><a href="visit.html">Opening hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Say hi</h4>
+          <ul>
+            <li><a href="mailto:hello@beanandbloom.example">hello@beanandbloom.example</a></li>
+            <li><a href="tel:+15550142">(555) 0142</a></li>
+            <li><a href="visit.html#contact">Send a message</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-word" aria-hidden="true">bean<em>&amp;</em>bloom</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px">
+        <span>© <span data-year></span> Bean &amp; Bloom Café</span>
+        <span>Made with ☕ using HTML, CSS &amp; JavaScript</span>
+      </div>
     </div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
