@@ -154,7 +154,7 @@ BB.reviews = [
   { name: "Grace", rating: 5, text: "Cinnamon rolls sell out by 10. Go early!" },
   { name: "Arjun", rating: 4, text: "Oat milk at no extra cost?? Respect." },
   { name: "Nora", rating: 5, text: "The latte art makes my whole morning." },
-  { name: "Kai", rating: 5, text: "Friendliest baristas on Maple Street ♡" },
+  { name: "Kai", rating: 5, text: "Friendliest baristas in Katpadi ♡" },
   { name: "Elena", rating: 4, text: "Matcha latte is the real deal, not too sweet." },
 ];
 

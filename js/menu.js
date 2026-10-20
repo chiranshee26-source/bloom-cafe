@@ -3,24 +3,27 @@
    ========================================================== */
 
 const menuItems = [
-  { id: "espresso", name: "Espresso", price: 2.5, category: "espresso", desc: "A rich double shot of our house blend, Bloom No. 1.", badges: [] },
-  { id: "flat-white", name: "Flat White", price: 3.8, category: "espresso", desc: "Silky micro-foam over a double ristretto.", badges: ["Bestseller"] },
-  { id: "cappuccino", name: "Cappuccino", price: 3.6, category: "espresso", desc: "Equal parts espresso, steamed milk and fluffy foam.", badges: [] },
-  { id: "caramel-latte", name: "Salted Caramel Latte", price: 4.2, category: "espresso", desc: "Espresso, steamed milk and our homemade salted caramel.", badges: [] },
-  { id: "mocha", name: "Mocha", price: 4.2, category: "espresso", desc: "Espresso with 70% dark chocolate and steamed milk.", badges: [] },
-  { id: "cold-brew", name: "Cold Brew", price: 4.0, category: "cold", desc: "Steeped for 18 hours. Smooth, chocolatey and refreshing.", badges: ["Vegan"] },
-  { id: "pour-over", name: "Pour-Over", price: 4.5, category: "cold", desc: "Single-origin beans, brewed by hand. Ask what's on this week.", badges: ["Vegan"] },
-  { id: "iced-latte", name: "Iced Oat Latte", price: 4.3, category: "cold", desc: "Double espresso over ice with creamy oat milk.", badges: ["Vegan"] },
-  { id: "matcha", name: "Matcha Latte", price: 4.5, category: "tea", desc: "Ceremonial-grade matcha whisked with oat milk.", badges: ["New", "Vegan"] },
-  { id: "chai", name: "Dirty Chai", price: 4.3, category: "tea", desc: "House-spiced chai with a shot of espresso.", badges: [] },
-  { id: "hot-choc", name: "Hot Chocolate", price: 3.5, category: "tea", desc: "Real dark chocolate, topped with whipped cream.", badges: [] },
-  { id: "croissant", name: "Butter Croissant", price: 2.8, category: "bakery", desc: "Flaky, golden and out of the oven at 6am.", badges: [] },
-  { id: "almond-croissant", name: "Almond Croissant", price: 3.4, category: "bakery", desc: "Twice-baked with frangipane and toasted almonds.", badges: ["Bestseller"] },
-  { id: "cinnamon-roll", name: "Cinnamon Roll", price: 3.4, category: "bakery", desc: "Soft and gooey, with cream-cheese icing.", badges: [] },
-  { id: "banana-bread", name: "Banana Bread", price: 3.0, category: "bakery", desc: "Toasted, with a little salted butter on the side.", badges: ["Vegan"] },
-  { id: "lemon-cake", name: "Lemon Drizzle Cake", price: 3.8, category: "bakery", desc: "Zesty, soft and soaked in lemon syrup.", badges: [] },
-  { id: "avocado-toast", name: "Avocado Toast", price: 7.5, category: "bakery", desc: "Smashed avocado, chilli flakes and lemon on toasted sourdough.", badges: ["Vegan"] },
+  { id: "espresso", name: "Espresso", price: 150, category: "espresso", desc: "A rich double shot of our house blend, Bloom No. 1.", badges: [] },
+  { id: "flat-white", name: "Flat White", price: 220, category: "espresso", desc: "Silky micro-foam over a double ristretto.", badges: ["Bestseller"] },
+  { id: "cappuccino", name: "Cappuccino", price: 200, category: "espresso", desc: "Equal parts espresso, steamed milk and fluffy foam.", badges: [] },
+  { id: "caramel-latte", name: "Salted Caramel Latte", price: 260, category: "espresso", desc: "Espresso, steamed milk and our homemade salted caramel.", badges: [] },
+  { id: "mocha", name: "Mocha", price: 250, category: "espresso", desc: "Espresso with 70% dark chocolate and steamed milk.", badges: [] },
+  { id: "cold-brew", name: "Cold Brew", price: 240, category: "cold", desc: "Steeped for 18 hours. Smooth, chocolatey and refreshing.", badges: ["Vegan"] },
+  { id: "pour-over", name: "Pour-Over", price: 280, category: "cold", desc: "Single-origin beans, brewed by hand. Ask what's on this week.", badges: ["Vegan"] },
+  { id: "iced-latte", name: "Iced Oat Latte", price: 270, category: "cold", desc: "Double espresso over ice with creamy oat milk.", badges: ["Vegan"] },
+  { id: "matcha", name: "Matcha Latte", price: 290, category: "tea", desc: "Ceremonial-grade matcha whisked with oat milk.", badges: ["New", "Vegan"] },
+  { id: "chai", name: "Dirty Chai", price: 230, category: "tea", desc: "House-spiced chai with a shot of espresso.", badges: [] },
+  { id: "hot-choc", name: "Hot Chocolate", price: 210, category: "tea", desc: "Real dark chocolate, topped with whipped cream.", badges: [] },
+  { id: "croissant", name: "Butter Croissant", price: 160, category: "bakery", desc: "Flaky, golden and out of the oven at 6am.", badges: [] },
+  { id: "almond-croissant", name: "Almond Croissant", price: 200, category: "bakery", desc: "Twice-baked with frangipane and toasted almonds.", badges: ["Bestseller"] },
+  { id: "cinnamon-roll", name: "Cinnamon Roll", price: 190, category: "bakery", desc: "Soft and gooey, with cream-cheese icing.", badges: [] },
+  { id: "banana-bread", name: "Banana Bread", price: 170, category: "bakery", desc: "Toasted, with a little salted butter on the side.", badges: ["Vegan"] },
+  { id: "lemon-cake", name: "Lemon Drizzle Cake", price: 220, category: "bakery", desc: "Zesty, soft and soaked in lemon syrup.", badges: [] },
+  { id: "avocado-toast", name: "Avocado Toast", price: 350, category: "bakery", desc: "Smashed avocado, chilli flakes and lemon on toasted sourdough.", badges: ["Vegan"] },
 ];
+
+// Format a number as Indian rupees, e.g. 1250 -> "₹1,250"
+const rupees = (amount) => "₹" + amount.toLocaleString("en-IN");
 
 const grid = document.getElementById("menuGrid");
 const tabs = document.querySelectorAll("#menuTabs button");
@@ -39,7 +42,7 @@ function renderMenu(filter) {
         <article class="menu-item" style="animation-delay:${i * 0.05}s">
           <div>
             <div class="menu-item-head">
-              <h3>${item.name}</h3><span class="dots"></span><span class="price">$${item.price.toFixed(2)}</span>
+              <h3>${item.name}</h3><span class="dots"></span><span class="price">${rupees(item.price)}</span>
             </div>
             <p>${item.desc}</p>
             ${badges ? `<div class="badges">${badges}</div>` : ""}
@@ -86,7 +89,7 @@ function updateBasket() {
   const total = entries.reduce((sum, [id, qty]) => sum + menuItems.find((i) => i.id === id).price * qty, 0);
 
   basketCount.textContent = count;
-  totalEl.textContent = "$" + total.toFixed(2);
+  totalEl.textContent = rupees(total);
 
   list.innerHTML = entries.length
     ? entries
@@ -100,7 +103,7 @@ function updateBasket() {
               <span>${qty}</span>
               <button data-change="1" data-id="${id}" aria-label="Add one">+</button>
             </div>
-            <small>$${(item.price * qty).toFixed(2)}</small>
+            <small>${rupees(item.price * qty)}</small>
           </li>`;
         })
         .join("")
