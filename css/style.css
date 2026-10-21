@@ -2625,3 +2625,565 @@ h3 {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================
+   15. Phone polish (≤ 600px only, desktop and tablet untouched)
+   Tighter spacing, notes pinned onto photos instead of
+   floating alone, and compact layouts so nothing feels empty.
+   ========================================================== */
+@media (max-width: 600px) {
+  /* --- Rhythm: less empty space between and inside sections --- */
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-head {
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .section-title {
+    font-size: 2.3rem;
+  }
+
+  .section-intro {
+    font-size: 0.95rem;
+  }
+
+  .window-bar {
+    height: 24px;
+    padding: 0 10px;
+  }
+
+  .window-bar i {
+    width: 7px;
+    height: 7px;
+  }
+
+  /* --- Sticky notes: smaller and pinned onto photos --- */
+  .note.float {
+    position: absolute;
+    z-index: 6;
+    width: 138px;
+    margin: 0;
+    padding: 20px 12px 12px;
+  }
+
+  .note.float p {
+    margin: 4px 0 6px;
+    font-size: 1.08rem;
+  }
+
+  .note.float .note-stars {
+    font-size: 0.7rem;
+  }
+
+  .note.float .note-name {
+    font-size: 0.95rem;
+  }
+
+  .note.float::before {
+    width: 56px;
+    height: 18px;
+    top: -9px;
+  }
+
+  /* --- Home hero: fade into the page instead of a hard edge --- */
+  .hero {
+    padding-bottom: 20px;
+  }
+
+  .hero-bg {
+    -webkit-mask-image: linear-gradient(#000 82%, transparent);
+    mask-image: linear-gradient(#000 82%, transparent);
+  }
+
+  .hero-sub {
+    margin-bottom: 24px;
+  }
+
+  /* --- Favourites: arrows beside the heading, smaller cards --- */
+  #favourites {
+    padding-top: 36px;
+    padding-bottom: 24px;
+  }
+
+  #favourites .section-head {
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+
+  #favourites .section-title {
+    font-size: 2.1rem;
+  }
+
+  .carousel-controls {
+    flex: none;
+    gap: 8px;
+  }
+
+  .carousel-controls .round-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .fav-track {
+    gap: 14px;
+    padding-bottom: 20px;
+  }
+
+  .fav-card {
+    flex-basis: 68%;
+    padding: 9px;
+  }
+
+  .fav-card .photo {
+    height: 220px;
+  }
+
+  .fav-meta {
+    padding: 12px 6px 4px;
+  }
+
+  .fav-meta h3 {
+    font-size: 1.1rem;
+  }
+
+  .fav-card p {
+    padding: 0 6px 6px;
+    font-size: 0.85rem;
+  }
+
+  /* --- "Your third place": note on the photos, stats in one row --- */
+  .vibe {
+    gap: 30px;
+  }
+
+  .note.float.vn-1 {
+    top: 16px;
+    left: 16px;
+  }
+
+  .polaroids {
+    height: 330px;
+  }
+
+  .vibe-text p {
+    margin: 16px 0 22px;
+    font-size: 1rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .stat {
+    display: block;
+    padding: 14px 8px;
+    text-align: center;
+    border-radius: 16px;
+  }
+
+  .stat strong {
+    font-size: 1.6rem;
+  }
+
+  .stat span {
+    display: block;
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  /* --- Kindness wall --- */
+  .wall {
+    gap: 26px 12px;
+    padding-top: 6px;
+  }
+
+  .wall .note {
+    padding: 22px 12px 14px;
+  }
+
+  .wall .note p {
+    font-size: 1.12rem;
+  }
+
+  /* --- Visit card --- */
+  .cta-card {
+    gap: 20px;
+    padding: 30px 22px;
+    border-radius: 26px;
+  }
+
+  .cta-card h2 {
+    font-size: 2.5rem;
+  }
+
+  .cta-card p {
+    margin: 12px 0 20px;
+    font-size: 0.95rem;
+  }
+
+  .cta-card .status {
+    color: var(--espresso);
+  }
+
+  .hours-mini li {
+    padding: 10px 0;
+    font-size: 0.92rem;
+  }
+
+  /* --- Inner page headers: bring the photo collage back --- */
+  .page-hero {
+    padding: 120px 0 250px;
+  }
+
+  .page-hero h1 {
+    margin: 10px 0 12px;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+
+  .page-hero .window {
+    display: block;
+  }
+
+  .page-hero .ph-win-1 {
+    top: auto;
+    right: 0;
+    bottom: -222px;
+    width: 60%;
+    rotate: 4deg;
+  }
+
+  .page-hero .ph-win-1 .photo {
+    height: 150px;
+  }
+
+  .page-hero .ph-win-2 {
+    top: auto;
+    right: auto;
+    left: 0;
+    bottom: -236px;
+    width: 50%;
+    rotate: -5deg;
+  }
+
+  .page-hero .ph-win-2 .photo {
+    height: 120px;
+  }
+
+  /* Menu header note sits on the photos */
+  .note.float.mn-1 {
+    top: auto;
+    left: 34%;
+    bottom: -150px;
+  }
+
+  .mn-2 {
+    display: none !important;
+  }
+
+  /* --- Menu --- */
+  .menu-bar {
+    top: 84px;
+    margin-bottom: 18px;
+  }
+
+  .tabs button {
+    padding: 9px 14px;
+    font-size: 0.86rem;
+  }
+
+  .menu-grid {
+    gap: 0;
+  }
+
+  .menu-item {
+    padding: 16px 0;
+  }
+
+  .menu-item h3 {
+    font-size: 1.12rem;
+  }
+
+  .menu-item .price {
+    font-size: 1rem;
+  }
+
+  .menu-item p {
+    font-size: 0.86rem;
+  }
+
+  .add-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  /* --- Gallery: two-column collage --- */
+  .filters {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .filters .chip {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .masonry {
+    columns: 2;
+    column-gap: 12px;
+  }
+
+  .masonry .window {
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  .masonry figcaption {
+    padding: 7px 10px 9px;
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .masonry .window-bar span {
+    display: none;
+  }
+
+  .note.float.gn-1 {
+    top: 96px;
+    right: 6px;
+  }
+
+  /* --- About --- */
+  .story {
+    gap: 26px;
+  }
+
+  .pull-quote {
+    font-size: 1.6rem;
+  }
+
+  .story p {
+    font-size: 0.98rem;
+  }
+
+  #timeline {
+    margin-top: 6px;
+  }
+
+  .t-item {
+    padding-bottom: 32px;
+  }
+
+  .t-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .t-item p {
+    font-size: 0.92rem;
+  }
+
+  .note.float.an-1 {
+    top: 30px;
+    right: 8px;
+  }
+
+  .note.float.an-2 {
+    top: -58px;
+    right: 8px;
+  }
+
+  /* Timeline heading lines up left so the note has room on the right */
+  .an-1 + .container .section-head {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .values {
+    gap: 12px;
+  }
+
+  .value {
+    padding: 22px 20px;
+  }
+
+  .value .num {
+    font-size: 2.2rem;
+  }
+
+  .value h3 {
+    margin: 4px 0 6px;
+    font-size: 1.25rem;
+  }
+
+  .value p {
+    font-size: 0.92rem;
+  }
+
+  .team {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .member {
+    height: 210px;
+  }
+
+  .member-face {
+    padding: 14px;
+    gap: 6px;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+
+  .member h3 {
+    font-size: 1.1rem;
+  }
+
+  .member small {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  .member-back {
+    font-size: 1.15rem;
+  }
+
+  /* --- Visit --- */
+  .note.float.vn-2 {
+    top: -92px;
+    right: 10px;
+  }
+
+  .visit-grid {
+    gap: 16px;
+  }
+
+  .card h2 {
+    margin-bottom: 12px;
+    font-size: 1.6rem;
+  }
+
+  .hours-table td {
+    padding: 10px 0;
+    font-size: 0.92rem;
+  }
+
+  .address {
+    font-size: 1.3rem;
+  }
+
+  .contact-lines {
+    margin: 14px 0 18px;
+  }
+
+  .faq summary {
+    padding: 18px 0;
+    font-size: 1.08rem;
+  }
+
+  .faq summary::after {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* --- Footer: collage first, then everything compact --- */
+  .site-footer {
+    margin-top: 10px;
+    padding-top: 34px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .footer-top {
+    gap: 26px;
+  }
+
+  .footer-collage {
+    order: -1;
+    height: 200px;
+  }
+
+  .fc-1 {
+    right: 2%;
+    width: 60%;
+    height: 158px;
+  }
+
+  .fc-2 {
+    bottom: 4px;
+    width: 48%;
+    height: 128px;
+  }
+
+  .fc-note {
+    display: block;
+    right: auto;
+    left: 36%;
+    bottom: -18px;
+    width: 128px;
+    padding: 18px 11px 11px;
+  }
+
+  .fc-note p {
+    margin: 4px 0 4px;
+    font-size: 1rem;
+  }
+
+  .fc-note .note-stars {
+    font-size: 0.65rem;
+  }
+
+  .fc-note .note-name {
+    font-size: 0.9rem;
+  }
+
+  .footer-tagline {
+    font-size: 1.9rem;
+  }
+
+  .footer-actions {
+    gap: 10px;
+    margin: 18px 0 26px;
+  }
+
+  .footer-actions .btn {
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .footer-grid h4 {
+    margin-bottom: 8px;
+    font-size: 0.68rem;
+  }
+
+  .footer-grid li {
+    margin-bottom: 4px;
+    font-size: 0.82rem;
+  }
+
+  .footer-word {
+    margin: 34px 0 12px;
+  }
+
+  .footer-bottom {
+    padding: 14px 0 18px;
+    font-size: 0.8rem;
+  }
+}
